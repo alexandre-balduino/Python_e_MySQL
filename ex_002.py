@@ -23,7 +23,6 @@ conexao = connect(
     password=db_pass,
     database=db_name
 )
-
 cursor = conexao.cursor()
 
 cursor.execute('''

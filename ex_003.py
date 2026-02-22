@@ -1,21 +1,22 @@
 '''
 Faça uma lista com o nome de 
-todas as gafanhotas mulheres
+todos os homens que trabalham como 
+programadores
 '''
 
-import os
-import mysql.connector 
+from os import getenv
 from dotenv import load_dotenv
+from mysql.connector import connect
 from tabulate import tabulate
 
 load_dotenv()
 
-db_host = os.getenv('DB_HOST')
-db_user = os.getenv('DB_USER')
-db_pass = os.getenv('DB_PASS')
-db_name = os.getenv('DB_NAME')
+db_host = getenv("DB_HOST")
+db_user = getenv("DB_USER")
+db_pass = getenv("DB_PASS")
+db_name = getenv("DB_NAME")
 
-conexao = mysql.connector.connect(
+conexao = connect(
     host=db_host,
     user=db_user,
     password=db_pass,
@@ -26,7 +27,7 @@ cursor = conexao.cursor()
 cursor.execute('''
     SELECT nome 
     FROM gafanhotos
-    WHERE sexo = 'F';
+    WHERE sexo = 'M' AND profissao = 'Programador';
 ''')
 
 resultado = cursor.fetchall()

@@ -1,8 +1,8 @@
 '''
-Faça uma lista com nome e 
-nacionalidade de todos os homens que 
-tem Silva no nome, não nasceram no 
-Brasil e que tem menos de 100Kg
+Qual é o menor peso entre alunas 
+mulheres que nasceram fora do 
+Brasil entre 01 de Janeiro de 1990 
+e 31 de Dezembro de 2000?
 '''
 
 from os import getenv
@@ -21,16 +21,17 @@ conexao = connect(
 cursor = conexao.cursor()
 
 cursor.execute('''
-    SELECT nome, nacionalidade 
-    FROM gafanhotos 
+    SELECT MIN(peso)
+    FROM gafanhotos
     WHERE 
-        sexo = 'M' AND 
-        nome LIKE  '%Silva%' AND 
+        sexo = 'F' AND 
         nacionalidade != 'Brasil' AND 
-        peso < 100;
+        nascimento BETWEEN 
+            '1990-01-01' AND 
+            '2000-12-31';
 ''')
 
 resultado = cursor.fetchall()
 colunas = [c[0].upper() for c in cursor.description]
-tabela = tabulate(resultado, headers=colunas, tablefmt='grid')
+tabela = tabulate(resultado, headers=colunas, tablefmt="grid")
 print(tabela)

@@ -22,7 +22,9 @@ cursor = conexao.cursor()
 cursor.execute('''
     SELECT nome 
     FROM gafanhotos
-    WHERE sexo = 'M' AND profissao = 'Programador';
+    WHERE 
+        sexo = 'M' AND 
+        profissao = 'Programador';
 ''')
 
 resultado = cursor.fetchall()

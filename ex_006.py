@@ -21,7 +21,9 @@ cursor = conexao.cursor()
 cursor.execute('''
     SELECT MAX(altura)
     FROM gafanhotos
-    WHERE sexo = 'M' AND nacionalidade = 'Brasil';
+    WHERE 
+        sexo = 'M' AND 
+        nacionalidade = 'Brasil';
 ''')
 
 resultado = cursor.fetchall()

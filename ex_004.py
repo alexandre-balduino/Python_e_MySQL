@@ -23,7 +23,10 @@ cursor = conexao.cursor()
 cursor.execute('''
     SELECT *
     FROM gafanhotos
-    WHERE sexo = 'F' AND nacionalidade = 'Brasil' AND nome LIKE 'J%';
+    WHERE 
+        sexo = 'F' AND 
+        nacionalidade = 'Brasil' AND 
+        nome LIKE 'J%';
 ''')
 
 resultado = cursor.fetchall()

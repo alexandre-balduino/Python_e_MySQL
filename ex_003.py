@@ -11,16 +11,11 @@ from tabulate import tabulate
 
 load_dotenv()
 
-db_host = getenv("DB_HOST")
-db_user = getenv("DB_USER")
-db_pass = getenv("DB_PASS")
-db_name = getenv("DB_NAME")
-
 conexao = connect(
-    host=db_host,
-    user=db_user,
-    password=db_pass,
-    database=db_name
+    host=getenv("DB_HOST"),
+    user=getenv("DB_USER"),
+    password=getenv("DB_PASS"),
+    database=getenv("DB_NAME")
 )
 cursor = conexao.cursor()
 

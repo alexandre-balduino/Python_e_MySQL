@@ -5,7 +5,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-gafanhoto = GafanhotoDB(
+gafanhoto = GafanhotoDB()
+
+gafanhoto.conectar(
     host=getenv("DB_HOST"), 
     user=getenv("DB_USER"), 
     password=getenv("DB_PASS"), 
